@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MemeHub</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <div>M</div>
+            MemeHub
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="🔍Search memes, tags, or creators..." />
+        </div>
+
+        <div class="nav-links">
+            <a href="#" class="active">Home</a>
+            <a href="#">Explore</a>
+            <button class="create-btn">+ Create</button>
+            <a href="#">Trending</a>
+            <a href="#">Leaderboard</a>
+            <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+            <button class="login-btn">
+                <span>👤</span> Log in
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-section">
+        <h1>The Internet's Playground for Memes</h1>
+        <p>Create, share, and track the performance of your memes on the web's premier meme platform.</p>
+        <div class="btn-group">
+            <button class="btn btn-primary">
+                Create a Meme <span class="arrow">→</span>
+            </button>
+            <button class="btn btn-secondary">Explore Trending</button>
+        </div>
+    </main>
+
+    <h1>Everything You Need for Meme Domination</h1>
+    <div class="features">
+        <div class="feature-box">
+            <span class="feature-icon">🖼️</span>
+            <div class="feature-title">Powerful Creation Studio</div>
+            <div class="feature-description">
+                Upload images or use templates. Customize text, fonts, and colors to create the perfect meme.
+            </div>
+        </div>
+        <div class="feature-box">
+            <span class="feature-icon">⭐</span>
+            <div class="feature-title">Community Engagement</div>
+            <div class="feature-description">
+                Vote, comment, and share. Watch your memes climb the ranks and go viral.
+            </div>
+        </div>
+        <div class="feature-box">
+            <span class="feature-icon">📈</span>
+            <div class="feature-title">Performance Analytics</div>
+            <div class="feature-description">
+                Track views, votes, and comments. See how your memes perform over time.
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: How It Works -->
+    <div class="how-it-works">
+        <h1>How MemeHub Works</h1>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">Create</div>
+                <div class="step-description">Design your meme using our intuitive studio</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Share</div>
+                <div class="step-description">Publish your creation to the MemeHub community</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Track</div>
+                <div class="step-description">Watch your meme's performance metrics in real-time</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2 class="cta-heading">Ready to Become a Meme Master?</h2>
+        <p class="cta-subtext">
+            Join thousands of creators who are making and sharing the internet's favorite content.
+        </p>
+        <button class="cta-button">Get Started Today</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 MemeHub. All rights reserved.</p>
+        <p>
+            <a href="#">About</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Privacy</a> |
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("light");
+            const btn = document.querySelector(".toggle-dark");
+            btn.textContent = document.body.classList.contains("light") ? "🌞" : "🌙";
+        }
+    </script>
+</body>
+
+</html>
