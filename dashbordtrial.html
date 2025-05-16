@@ -23,6 +23,29 @@
       align-items: center;
     }
 
+    :root {
+  --color-primary: #ff6b81;
+  --color-secondary: #feca57;
+  --color-accent: #1dd1a1;
+  --color-bg: #f8f8f8;
+  --color-text: #222f3e;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+button:hover {
+  background-color: var(--color-accent);
+}
+
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -120,15 +143,30 @@
     <p id="auth-status">🔒 Not logged in</p>
   </div>
 
-  <!-- Firebase Login Script -->
+  <!-- Firebase App & Auth -->
   <script type="module">
-    import { auth } from './firebase.js';
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
     import {
+      getAuth,
       createUserWithEmailAndPassword,
       signInWithEmailAndPassword,
       sendPasswordResetEmail,
       onAuthStateChanged
-    } from 'https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js';
+    } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-auth.js";
+
+    // ✅ Replace with your Firebase config
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
     // DOM elements
     const emailInput = document.getElementById("email");
@@ -155,7 +193,7 @@
       if (!email || !password) return alert("Please fill in both fields.");
       try {
         await signInWithEmailAndPassword(auth, email, password);
-        window.location.href = "Dashboard.html";
+        window.location.href = "Dashboard.html"; // Redirect after login
       } catch (err) {
         alert("⚠️ Login failed: " + err.message);
       }
@@ -173,7 +211,7 @@
       }
     });
 
-    // Auth status change
+    // Auth State Tracking
     onAuthStateChanged(auth, (user) => {
       authStatus.textContent = user
         ? `✅ Logged in as ${user.email}`
