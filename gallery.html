@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Gallery</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 10px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Uploaded Images</h2>
+  <div class="gallery-container" id="gallery"></div>
+
+  <script>
+    // Your Firebase config (must match the upload page)
+    const firebaseConfig = {
+  apiKey: "AIzaSyDCM_ednUvxNqRKVMtUgy7fCOq275SsI8k",
+  authDomain: "memes-64a42.firebaseapp.com",
+   databaseURL:"https://memes-64a42-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "memes-64a42",
+  storageBucket: "memes-64a42.firebasestorage.app",
+  messagingSenderId: "856854598842",
+  appId: "1:856854598842:web:253105accbb49c9ce15e83",
+  measurementId: "G-RG54LZH34E"
+};
+
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Reference to the 'images' node
+    db.ref('images').on('child_added', (snapshot) => {
+      const value = snapshot.val();
+      // Support both { url: ... } and direct string value
+      const imageUrl = typeof value === 'string' ? value : value.url;
+      if (!imageUrl) return; // Skip if no URL
+
+      const gallery = document.getElementById('gallery');
+
+      const item = document.createElement('div');
+      item.classList.add('gallery-item');
+
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = "Uploaded image";
+
+      item.appendChild(img);
+      gallery.appendChild(item);
+    });
+    
+  </script>
+
+</body>
+</html>
