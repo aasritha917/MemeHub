@@ -188,6 +188,7 @@ body.light .login-btn {
     align-items: center;
     gap: 8px;
     transition: background-color 0.3s, color 0.3s;
+    
 }
 
 .btn-primary {

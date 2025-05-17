@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MemeHub - Home</title>
+    <!-- <link rel="stylesheet" href="styles_Pratibha.css" /> -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode styles */
+        body.light {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background-color: #0d0d0d;
+            border-bottom: 1px solid #222;
+            transition: background-color 0.3s;
+        }
+
+        body.light .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s;
+        }
+
+        body.light .logo {
+            color: #111;
+        }
+
+        .logo div {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+            border-radius: 50%;
+            background: #fff;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 300px;
+            margin: 0 10px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #121212;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body.light .search-bar input {
+            background-color: #fff;
+            color: #111;
+            border-color: #ccc;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ccc;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a.active {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        body.light .nav-links a {
+            color: #555;
+        }
+
+        body.light .nav-links a.active {
+            color: #111;
+        }
+
+        .create-btn {
+            background: #fff;
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.light .create-btn {
+            background: #000;
+            color: #fff;
+        }
+
+        .toggle-dark {
+            margin-left: 16px;
+            font-size: 18px;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        body.light .toggle-dark {
+            color: #111;
+        }
+
+        .login-btn {
+            margin-left: 12px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        body.light .login-btn {
+            border-color: #111;
+            color: #111;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sub-main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Left Section */
+        .left {
+            flex: 1 1 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .meme-box {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px dashed #444;
+        }
+
+        .upload-label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: #ccc;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .upload-label:hover {
+            color: #ffffff;
+        }
+
+        .upload-label input[type="file"] {
+            display: none;
+        }
+
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        /* Right Section */
+        .right {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 24px;
+            flex: 1 1 40%;
+            border-left: 2px solid #333;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .right label {
+            font-size: 14px;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .right input[type="text"],
+        .right select,
+        .right input[type="range"],
+        .right input[type="color"] {
+            padding: 8px;
+            border: 1px solid #444;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        .right input[type="range"] {
+            accent-color: #ffffff;
+        }
+
+        .right button {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .right button:hover {
+            background-color: #cccccc;
+        }
+
+        .color-font-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .sub-main {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                flex: 1 1 100%;
+            }
+
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <div>M</div>
+            MemeHub
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search memes, tags, or creators..." />
+        </div>
+
+        <div class="nav-links">
+            <a href="./Dashboard.html" class="active">Home</a>
+            <a href="./Explore.html">Explore</a>
+            <a href="./Create.html"><button class="create-btn">+ Create</button></a>
+            <a href="./leaderboard.html">Leaderboard</a>
+            <a href="./Profile.html">Profile</a>
+            <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
+            <button class="login-btn">
+                <span><svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                        fill="#e3e3e3">
+                        <path
+                            d="M216-144q-29.7 0-50.85-21.15Q144-186.3 144-216v-528q0-29.7 21.15-50.85Q186.3-816 216-816h264v72H216v528h264v72H216Zm432-168-51-51 81-81H384v-72h294l-81-81 51-51 168 168-168 168Z" />
+                    </svg></span> LogOut
+            </button>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>🎨 MemeHub Creation Studio</h2>
+
+        <div class="sub-main">
+            <!-- Left: Canvas + Upload -->
+            <div class="left">
+                <div class="meme-box">
+                    <label for="imageInput" class="upload-label">
+                        Click to Upload Image
+                        <input type="file" id="imageInput" />
+                    </label>
+                    <canvas id="memeCanvas" width="500" height="500"></canvas>
+                </div>
+            </div>
+
+            <!-- Right: Controls -->
+            <div class="right">
+                <!-- Template Select -->
+                <label for="memeTemplate">Choose Meme Template</label>
+                <select id="memeTemplate">
+                    <option value="">-- Select a Template --</option>
+                    <option value="drake">Drake Hotline Bling</option>
+                    <option value="doge">Doge</option>
+                    <option value="success">Success Kid</option>
+                    <option value="custom">Upload Custom</option>
+                </select>
+
+                <!-- Text Inputs -->
+                <label for="topText">Top Text</label>
+                <input type="text" id="topText" placeholder="TOP TEXT" />
+
+                <label for="bottomText">Bottom Text</label>
+                <input type="text" id="bottomText" placeholder="BOTTOM TEXT" />
+
+                <!-- Font Customization -->
+                <div class="color-font-group">
+
+
+                    <label for="fontSizeRange">Font Size: <span id="fontSizeValue">32</span>px</label>
+                    <input type="range" id="fontSizeRange" min="10" max="100" step="1" value="32">
+
+
+                    <label>Font Family</label>
+                    <select id="fontFamily">
+                        <option value="Impact" selected>Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Comic Sans MS">Comic Sans</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Trebuchet MS">Trebuchet MS</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Lucida Console">Lucida Console</option>
+                        <option value="Palatino Linotype">Palatino</option>
+                        <option value="Gill Sans">Gill Sans</option>
+                        <option value="Franklin Gothic Medium">Franklin Gothic</option>
+                        <option value="Brush Script MT">Brush Script</option>
+                    </select>
+
+                    <label>Text Color</label>
+                    <input type="color" id="textColor" value="#ffffff" />
+
+                    <label>Text Alignment</label>
+                    <select id="textAlign">
+                        <option value="center" selected>Center</option>
+                        <option value="left">Left</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div class="control-group">
+            <button onclick="saveMeme()">📤 Publish Meme</button>
+            <button id="saveDraftBtn">Save Draft</button>
+        </div>
+        <div class="control-group">
+            <button id="randomTemplateBtn">🎲 Generate Random Meme</button>
+        </div>
+    </div>
+
+    <!-- footer.html -->
+    <footer style="background-color: #121212; color: #fff; padding: 20px 0; text-align: center; font-size: 14px;">
+        <p>&copy; 2025 MemeHub. All rights reserved.</p>
+        <p>
+            <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">About</a> |
+            <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">Terms</a> |
+            <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">Privacy</a> |
+            <a href="#" style="color: #bbb; text-decoration: none; margin: 0 10px;">Contact</a>
+        </p>
+    </footer>
+
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const canvas = document.getElementById('memeCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const topTextInput = document.getElementById('topText');
+        const bottomTextInput = document.getElementById('bottomText');
+        const fontSizeInput = document.getElementById('fontSizeRange');
+        const fontSizeValueDisplay = document.getElementById('fontSizeValue');
+        const textColorInput = document.getElementById('textColor');
+        const fontFamilyInput = document.getElementById('fontFamily');
+        const textAlignInput = document.getElementById('textAlign');
+        const templateSelect = document.getElementById('memeTemplate');
+
+        let uploadedImage = null;
+
+        const memeTemplates = {
+            drake: 'https://i.imgflip.com/30b1gx.jpg',
+            doge: 'https://i.imgflip.com/4t0m5.jpg',
+            success: 'https://i.imgflip.com/1bhw.jpg'
+        };
+
+        // Draw meme
+        function drawMeme() {
+            if (!uploadedImage) return;
+
+            const topText = topTextInput.value.toUpperCase();
+            const bottomText = bottomTextInput.value.toUpperCase();
+            const fontSize = parseInt(fontSizeInput.value);
+            const fontFamily = fontFamilyInput.value;
+            const textColor = textColorInput.value;
+            const textAlign = textAlignInput.value;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = textColor;
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = fontSize / 10;
+            ctx.font = `bold ${fontSize}px ${fontFamily}`;
+            ctx.textAlign = textAlign;
+
+            let x = textAlign === "left" ? 10 : textAlign === "right" ? canvas.width - 10 : canvas.width / 2;
+
+            ctx.textBaseline = "top";
+            ctx.fillText(topText, x, 10);
+            ctx.strokeText(topText, x, 10);
+
+            ctx.textBaseline = "bottom";
+            ctx.fillText(bottomText, x, canvas.height - 10);
+            ctx.strokeText(bottomText, x, canvas.height - 10);
+        }
+
+        //  Load uploaded image
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    uploadedImage = img;
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    drawMeme();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        //  Load selected template
+        templateSelect.addEventListener('change', function () {
+            const selected = this.value;
+            if (memeTemplates[selected]) {
+                loadImageOnCanvas(memeTemplates[selected]);
+            }
+        });
+
+        //  Load random template
+        document.getElementById('randomTemplateBtn')?.addEventListener('click', () => {
+            const keys = Object.keys(memeTemplates);
+            const randomKey = keys[Math.floor(Math.random() * keys.length)];
+            const imageUrl = memeTemplates[randomKey];
+            templateSelect.value = randomKey;
+            loadImageOnCanvas(imageUrl);
+        });
+
+        // 📥 Utility to load image from URL
+        function loadImageOnCanvas(url) {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = () => {
+                uploadedImage = img;
+                canvas.width = img.width;
+                canvas.height = img.height;
+                drawMeme();
+            };
+            img.src = url;
+        }
+
+        fontSizeInput.addEventListener('input', () => {
+            fontSizeValueDisplay.textContent = fontSizeInput.value;
+            drawMeme();
+        });
+
+        [topTextInput, bottomTextInput, fontSizeInput, textColorInput, fontFamilyInput, textAlignInput].forEach(input =>
+            input.addEventListener('input', drawMeme)
+        );
+
+        function saveMeme() {
+            const link = document.createElement('a');
+            link.download = 'meme.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        window.saveMeme = saveMeme;
+
+
+        function saveDraft() {
+            const draft = {
+                topText: topTextInput.value,
+                bottomText: bottomTextInput.value,
+                fontSize: fontSizeInput.value,
+                textColor: textColorInput.value,
+                fontFamily: fontFamilyInput.value,
+                textAlign: textAlignInput.value,
+                template: templateSelect.value
+            };
+            localStorage.setItem('memeDraft', JSON.stringify(draft));
+            alert('Draft saved!');
+        }
+        document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
+
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedDraft = localStorage.getItem('memeDraft');
+            if (savedDraft) {
+                const draft = JSON.parse(savedDraft);
+                topTextInput.value = draft.topText || '';
+                bottomTextInput.value = draft.bottomText || '';
+                fontSizeInput.value = draft.fontSize || '32';
+                textColorInput.value = draft.textColor || '#ffffff';
+                fontFamilyInput.value = draft.fontFamily || 'Impact';
+                textAlignInput.value = draft.textAlign || 'center';
+                templateSelect.value = draft.template || '';
+
+                if (draft.template && memeTemplates[draft.template]) {
+                    loadImageOnCanvas(memeTemplates[draft.template]);
+                }
+            }
+        });
+        function toggleDarkMode() {
+            document.body.classList.toggle("light");
+            const btn = document.querySelector(".toggle-dark");
+            btn.textContent = document.body.classList.contains("light") ? "🌞" : "🌙";
+        }
+    </script>
+</body>
+
+</html>
