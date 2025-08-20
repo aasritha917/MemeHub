@@ -26,15 +26,19 @@ Libraries: Chart.js (optional analytics), Framer Motion (animations)
 [MEMESHUB](https://meme-hub-seven.vercel.app/index.html)
 
 **HOME**
+
 <img width="1898" height="914" alt="image" src="https://github.com/user-attachments/assets/9949527e-44bd-4b74-9866-7e1e9c444412" />
 
 **EXPLORE**
+
 <img width="1899" height="912" alt="image" src="https://github.com/user-attachments/assets/66129e24-2ff1-4a1a-84cd-65afd5e336cf" />
 
 **CREATING**
+
 <img width="1896" height="906" alt="image" src="https://github.com/user-attachments/assets/1a76d0ca-6648-4c02-952f-00190b80ca03" />
 
 **PROFILE**
+
 <img width="1896" height="905" alt="image" src="https://github.com/user-attachments/assets/a9e1336d-db82-44e8-800f-731786befc93" />
 
 **Made by: AASRITHA.K**
