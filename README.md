@@ -2,6 +2,8 @@
 
 MemeHub is a fun and interactive meme-sharing web application where users can explore trending memes, view personalized profiles, and maintain their meme gallery. Built with modern web technologies, MemeHub offers a smooth, image-centric UI and prepares for future features like AI-generated captions and auto-tagging.
 
+---
+
 **Features**
 
 🏠 Home Page – Browse the latest memes in a clean feed layout
@@ -14,6 +16,8 @@ MemeHub is a fun and interactive meme-sharing web application where users can ex
 
 ⚙️ (Upcoming) – AI-powered caption generator and auto-tagging
 
+---
+
 **🛠️ Tech Stack**
 
 Frontend: HTML, CSS, JavaScript
@@ -22,8 +26,12 @@ Backend/Database: Firebase (for data storage and user auth)
 
 Libraries: Chart.js (optional analytics), Framer Motion (animations)
 
+---
+
 **🔗 Live Demo**
 [MEMESHUB](https://meme-hub-seven.vercel.app/index.html)
+
+---
 
 **HOME PAGE**
 
@@ -41,4 +49,6 @@ Libraries: Chart.js (optional analytics), Framer Motion (animations)
 
 <img width="1896" height="905" alt="image" src="https://github.com/user-attachments/assets/a9e1336d-db82-44e8-800f-731786befc93" />
 
-**DEVELOPERD BY : AASRITHA.K**
+---
+
+**DEVELOPERD BY: AASRITHA.K**
