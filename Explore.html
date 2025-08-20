@@ -254,10 +254,10 @@
         </div>
 
         <div class="nav-links">
-            <a href="./Dashboard.html" class="active">Home</a>
+            <a href="./index.html" class="active">Home</a>
             <a href="./Explore.html">Explore</a>
             <a href="./Create.html"><button class="create-btn">+ Create</button></a>   
-            <a href="./leaderboard.html">Leaderboard</a>
+            <!-- <a href="./leaderboard.html">Leaderboard</a> -->
             <a href="./Profile.html">Profile</a>
             <button class="toggle-dark" onclick="toggleDarkMode()">🌙</button>
             <button class="login-btn">
@@ -301,15 +301,18 @@
             localStorage.setItem('memeInteractions', JSON.stringify(interactions));
         }
 
-        async function fetchMemes() {
-            try {
-                const response = await axios.get('https://www.reddit.com/r/memes/top.json?t=week&limit=50');
-                memes = response.data.data.children.map(c => c.data);
-                displayMemes();
-            } catch (error) {
-                console.error('Error fetching memes:', error);
-            }
-        }
+async function fetchMemes() {
+    try {
+        let res = await fetch("https://meme-api.com/gimme/20"); 
+        let data = await res.json();
+        // meme-api.com returns an array in data.memes
+        memes = data.memes;
+        displayMemes();
+    } catch (err) {
+        document.getElementById('memeContainer').innerHTML = '<p class="text-red-500">Failed to load memes.</p>';
+        console.error("Error fetching memes:", err);
+    }
+}
 
         function displayMemes() {
             const container = document.getElementById('memeContainer');
@@ -326,7 +329,6 @@
                     comments: []
                 };
 
-                // Use ups from Reddit + local like count (1 max)
                 const likeCount = (interaction.liked ? 1 : 0) + meme.ups;
                 const upvoteCount = (interaction.upvoted ? 1 : 0);
                 const downvoteCount = (interaction.downvoted ? 1 : 0);
@@ -475,6 +477,12 @@
                 container.appendChild(card);
             });
         }
+        document.querySelector('.login-btn').addEventListener('click', function () {
+    // Clear user data (customize as needed)
+    localStorage.clear();
+    // Redirect to login or home page
+    window.location.href = './index.html'; // Change to your login page if needed
+});
         fetchMemes();
     </script>
 </body>
