@@ -51,4 +51,4 @@ Libraries: Chart.js (optional analytics), Framer Motion (animations)
 
 ---
 
-**DEVELOPERD BY: AASRITHA.K**
+**DEVELOPED BY: AASRITHA.K**
