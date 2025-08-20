@@ -41,4 +41,4 @@ Libraries: Chart.js (optional analytics), Framer Motion (animations)
 
 <img width="1896" height="905" alt="image" src="https://github.com/user-attachments/assets/a9e1336d-db82-44e8-800f-731786befc93" />
 
-**Made by: AASRITHA.K**
+**DEVELOPERD BY : AASRITHA.K**
