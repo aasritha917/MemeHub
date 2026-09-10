@@ -50,8 +50,7 @@ Planned improvements include:
 
 ### Libraries & Tools
 
-* Chart.js — analytics/visualization, where applicable
-* Framer Motion — animations, where applicable
+* Chart.js — analytics/visualization, 
 * Git & GitHub — version control and collaboration
 * Vercel — deployment
 
