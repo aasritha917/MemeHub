@@ -69,7 +69,7 @@ Make sure you have:
 1. Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/aasritha917/MemeHub.git)
 ```
 
 2. Navigate to the project directory:
