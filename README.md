@@ -97,7 +97,6 @@ MemeHub/
 └── README.md
 ```
 
-> Update the structure above to match the actual folders and files in your repository.
 
 ## 📸 Screenshots
 
@@ -143,7 +142,9 @@ Each team member contributed to different aspects of the application, including:
 * Testing and debugging
 * Git/GitHub-based collaboration
 
-> Add a separate **My Contribution** subsection here describing the features you personally worked on.
+### My Contribution
+
+I contributed to the frontend development of MemeHub, including responsive UI implementation, JavaScript-based interactions, meme creation functionality, and Firebase integration. I also participated in testing, debugging, and Git/GitHub-based collaboration.
 
 ## 🔮 Future Improvements
 
